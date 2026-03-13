@@ -967,11 +967,14 @@ h3 {
 
   .calendar-grid {
     gap: 8px;
-    min-width: 640px;
+    grid-template-columns: repeat(7, 72px);
+    width: max-content;
+    min-width: 0;
   }
 
   .calendar-day-name,
   .calendar-cell {
+    width: 72px;
     min-height: 112px;
     padding: 10px;
     border-radius: 14px;
