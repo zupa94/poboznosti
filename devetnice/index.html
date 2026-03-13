@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devetnice | Poboznosti</title>
+  <link rel="stylesheet" href="../assets/styles/site.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">Poboznosti</a>
+      <nav class="top-nav">
+        <a href="../index.html">Pocetna</a>
+        <a href="index.html" aria-current="page">Devetnice</a>
+        <a href="../krunice/index.html">Krunice</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Kalendar</span>
+            <h2>Mjesecni pregled devetnica</h2>
+          </div>
+        </div>
+        <article class="glass-card calendar-card calendar-card-full">
+          <div class="calendar-header">
+            <div>
+              <p class="calendar-month-label">Aktivni mjesec</p>
+              <h3 id="calendar-title">Kalendar</h3>
+            </div>
+            <div class="calendar-legend">
+              <span><i class="legend-swatch start"></i>Pocetak</span>
+              <span><i class="legend-swatch active"></i>Aktivna devetnica</span>
+              <span><i class="legend-swatch today"></i>Danas</span>
+            </div>
+          </div>
+          <div id="calendar-grid" class="calendar-grid"></div>
+        </article>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Aktualno</span>
+            <h2>Sto je trenutno vazno</h2>
+          </div>
+        </div>
+        <div id="active-novenas" class="stack-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="../assets/scripts/pages/devetnice-page.js"></script>
+</body>
+</html>

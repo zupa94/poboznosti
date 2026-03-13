@@ -4,222 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Poboznosti</title>
-  <style>
-    :root {
-      --bg-top: #f6efe4;
-      --bg-bottom: #d9e6ea;
-      --surface: rgba(255, 252, 246, 0.82);
-      --surface-strong: rgba(255, 255, 255, 0.92);
-      --text: #1f2933;
-      --muted: #5f6c76;
-      --accent: #9f6b2e;
-      --accent-soft: rgba(159, 107, 46, 0.14);
-      --border: rgba(77, 95, 110, 0.16);
-      --shadow: 0 24px 60px rgba(47, 58, 66, 0.16);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(255, 255, 255, 0.7), transparent 38%),
-        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-
-    .shell {
-      width: min(920px, 100%);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      backdrop-filter: blur(18px);
-    }
-
-    .hero {
-      position: relative;
-      padding: 72px 28px 40px;
-      text-align: center;
-      isolation: isolate;
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      z-index: -1;
-    }
-
-    .hero::before {
-      width: 260px;
-      height: 260px;
-      top: -90px;
-      left: -70px;
-      background: rgba(159, 107, 46, 0.14);
-    }
-
-    .hero::after {
-      width: 220px;
-      height: 220px;
-      right: -80px;
-      bottom: -80px;
-      background: rgba(98, 131, 152, 0.18);
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      line-height: 0.95;
-      font-weight: 700;
-    }
-
-    .lead {
-      width: min(620px, 100%);
-      margin: 20px auto 0;
-      font-size: 1.08rem;
-      line-height: 1.8;
-      color: var(--muted);
-    }
-
-    .status-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      padding: 0 28px 28px;
-    }
-
-    .card {
-      background: var(--surface-strong);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 22px;
-    }
-
-    .card h2 {
-      margin: 0 0 10px;
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .pulse {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 18px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(31, 41, 51, 0.06);
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    .pulse-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 0 rgba(159, 107, 46, 0.45);
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(159, 107, 46, 0.45);
-      }
-      70% {
-        box-shadow: 0 0 0 12px rgba(159, 107, 46, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(159, 107, 46, 0);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero {
-        padding: 52px 20px 28px;
-      }
-
-      .status-grid {
-        padding: 0 20px 20px;
-      }
-
-      .card {
-        padding: 18px;
-      }
-    }
-  </style>
+  <meta
+    name="description"
+    content="Poboznosti s kalendarom devetnica, pregledom aktivnih molitava i zasebnim stranicama za krunice."
+  >
+  <link rel="stylesheet" href="assets/styles/site.css">
 </head>
-<body>
-  <main class="shell">
-    <section class="hero">
-      <div class="eyebrow">Stranica je u pripremi</div>
-      <h1>Poboznosti</h1>
-      <p class="lead">
-        Sadrzaj za molitve i poboznosti trenutno je u izradi. Ova stranica ce uskoro
-        dobiti potpunu strukturu s molitvama, tekstovima i preglednijim navigacijskim
-        cjelinama.
-      </p>
-      <div class="pulse">
-        <span class="pulse-dot"></span>
-        Ceka se implementacija sadrzaja
-      </div>
-    </section>
+<body data-page="home">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">Poboznosti</a>
+      <nav class="top-nav">
+        <a href="index.html" aria-current="page">Pocetna</a>
+        <a href="devetnice/index.html">Devetnice</a>
+        <a href="krunice/index.html">Krunice</a>
+      </nav>
+    </header>
 
-    <section class="status-grid">
-      <article class="card">
-        <h2>Trenutni status</h2>
-        <p>
-          Postavljena je pocetna privremena stranica kako bi projekt imao uredan i
-          jasan prikaz dok se priprema stvarni sadrzaj.
-        </p>
-      </article>
-
-      <article class="card">
-        <h2>Sto slijedi</h2>
-        <p>
-          Sljedeci korak je dodavanje konkretnih molitava, kategorija i jednostavne
-          navigacije za pregled po temama.
-        </p>
-      </article>
-
-      <article class="card">
-        <h2>Vizualni smjer</h2>
-        <p>
-          Dizajn je namjerno smiren i topao kako bi kasnija puna stranica mogla zadrzati
-          isti ugoaj bez naglog redizajna.
-        </p>
-      </article>
-    </section>
-  </main>
+    <main>
+      <section class="hero hero-home">
+        <div class="hero-copy">
+          <span class="eyebrow">Molitveni prostor</span>
+          <h1>Devetnice i krunice na jednom mjestu.</h1>
+          <p class="lead">
+            Jednostavan ulaz u dvije glavne cjeline stranice. Odaberi devetnice za kalendarski
+            pregled i aktivne poboznosti ili krunice za trajnu zbirku molitava.
+          </p>
+          <div class="home-entry-grid">
+            <a class="home-entry-card" href="devetnice/index.html">
+<!--              <span class="hero-panel-label">Dvije cjeline</span>-->
+              <h3>Devetnice</h3>
+              <p>Kalendar, aktivne devetnice i zasebne stranice za svaku poboznost.</p>
+            </a>
+            <a class="home-entry-card" href="krunice/index.html">
+<!--              <span class="hero-panel-label">Dvije cjeline</span>-->
+              <h3>Krunice</h3>
+              <p>Trajna zbirka molitava s odvojenim stranicama i jasnim redoslijedom molitve.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
