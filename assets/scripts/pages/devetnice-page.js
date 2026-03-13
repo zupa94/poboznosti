@@ -1,10 +1,16 @@
 import { novenas } from "../data/novenas/index.js";
 import { buildCalendarModel, formatDate, getNovenaStatus } from "./shared.js";
 
+let currentViewDate = new Date();
+
+function shiftMonth(baseDate, offset) {
+  return new Date(baseDate.getFullYear(), baseDate.getMonth() + offset, 1);
+}
+
 function renderCalendar() {
   const title = document.getElementById("calendar-title");
   const grid = document.getElementById("calendar-grid");
-  const { weekdayNames, monthLabel, cells } = buildCalendarModel(new Date());
+  const { weekdayNames, monthLabel, cells } = buildCalendarModel(currentViewDate);
 
   title.textContent = monthLabel;
 
@@ -52,6 +58,21 @@ function renderCalendar() {
   grid.innerHTML = namesMarkup + cellsMarkup;
 }
 
+function setupCalendarControls() {
+  const prevButton = document.getElementById("calendar-prev");
+  const nextButton = document.getElementById("calendar-next");
+
+  prevButton.addEventListener("click", () => {
+    currentViewDate = shiftMonth(currentViewDate, -1);
+    renderCalendar();
+  });
+
+  nextButton.addEventListener("click", () => {
+    currentViewDate = shiftMonth(currentViewDate, 1);
+    renderCalendar();
+  });
+}
+
 function renderActiveNovenas() {
   const target = document.getElementById("active-novenas");
   const items = novenas
@@ -81,4 +102,5 @@ function renderActiveNovenas() {
 }
 
 renderCalendar();
+setupCalendarControls();
 renderActiveNovenas();

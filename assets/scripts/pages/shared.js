@@ -85,6 +85,7 @@ export function getMonthLabel(date = new Date()) {
 }
 
 export function buildCalendarModel(referenceDate = new Date()) {
+  const today = startOfDay(new Date());
   const month = referenceDate.getMonth();
   const year = referenceDate.getFullYear();
   const firstDay = new Date(year, month, 1);
@@ -121,7 +122,7 @@ export function buildCalendarModel(referenceDate = new Date()) {
     cells.push({
       date,
       day,
-      isToday: startOfDay(date).getTime() === startOfDay(referenceDate).getTime(),
+      isToday: startOfDay(date).getTime() === today.getTime(),
       novenas: dayNovenas
     });
   }
