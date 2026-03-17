@@ -132,7 +132,7 @@ function renderRosaryCards() {
     .map(
       (rosary) => `
         <article class="info-card">
-          <span class="card-kicker">Krunice</span>
+          <span class="card-kicker">Krunica</span>
           <h3>${rosary.title}</h3>
           <p>${rosary.summary}</p>
           <span class="status-pill future">Zasebna stranica</span>

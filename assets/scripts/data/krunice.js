@@ -3,22 +3,22 @@ export const rosaries = [
     slug: "otajstva-krunice",
     title: "Klasicna krunica",
     shortTitle: "Krunica",
-    link: "../krunice/otajstva-krunice.html",
-    homeLink: "krunice/otajstva-krunice.html",
+    link: "../krunica/index.html",
+    homeLink: "krunica/index.html",
     summary:
-      "Stranica za otajstva krunice s jasnim redoslijedom molitve i rasporedom po danima u tjednu.",
+      "Cjeloviti redoslijed molitve krunice s pocetnim molitvama, otajstvima i zavrsnim molitvama.",
     description:
-      "Ovu cjelinu ima smisla voditi kao temeljnu molitvu na stranici. Na jednoj stranici imas uvod, redoslijed molitava i sva cetiri otajstva.",
+      "Na jednoj stranici nalaze se uvod, redoslijed molitava, raspored otajstava po danima i zavrsne molitve.",
     sections: [
       {
-        title: "Kako je posloziti",
+        title: "Redoslijed molitve",
         body:
-          "Na vrhu prikazi redoslijed molitve, zatim po karticama radosna, zalosna, slavna i svjetla otajstva."
+          "Na vrhu su pocetne molitve, zatim slijedi pet desetica s pripadajucim otajstvima i zakljucne molitve."
       },
       {
-        title: "Sto je korisno dodati",
+        title: "Raspored otajstava",
         body:
-          "Kratki podsjetnik koji se dan mole pojedina otajstva i sidra za brzo skakanje na trazeni dio stranice."
+          "Ukljucen je podsjetnik koja se otajstva mole ponedjeljkom, utorkom, srijedom, cetvrtkom, petkom, subotom i nedjeljom."
       }
     ]
   },

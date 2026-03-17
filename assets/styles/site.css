@@ -913,6 +913,88 @@ h3 {
   margin-top: 18px;
 }
 
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+  justify-content: center;
+}
+
+.quick-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid var(--border);
+  color: var(--accent-dark);
+  font-weight: 700;
+  box-shadow: var(--shadow-soft);
+}
+
+.prayer-stack,
+.rosary-sections {
+  display: grid;
+  gap: 18px;
+}
+
+.prayer-text {
+  display: grid;
+  gap: 10px;
+}
+
+.prayer-text p,
+.mystery-days p,
+.mystery-list li {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.prayer-text strong,
+.mystery-list strong {
+  color: var(--text);
+}
+
+.inline-prayer-note {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(159, 107, 46, 0.08);
+  border: 1px solid rgba(159, 107, 46, 0.12);
+}
+
+.mystery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mystery-card {
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+.mystery-card h3 {
+  margin-bottom: 8px;
+}
+
+.mystery-days {
+  margin-bottom: 16px;
+}
+
+.mystery-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.mystery-list li + li {
+  margin-top: 10px;
+}
+
 @media (max-width: 980px) {
   .hero,
   .section-heading,
@@ -923,6 +1005,10 @@ h3 {
   }
 
   .meta-panel-inline {
+    grid-template-columns: 1fr;
+  }
+
+  .mystery-grid {
     grid-template-columns: 1fr;
   }
 }

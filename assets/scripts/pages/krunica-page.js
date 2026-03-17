@@ -9,7 +9,7 @@ if (!rosary) {
 
 document.title = `${rosary.title} | Poboznosti`;
 
-document.getElementById("detail-eyebrow").textContent = "Krunice";
+document.getElementById("detail-eyebrow").textContent = "Krunica";
 document.getElementById("detail-title").textContent = rosary.title;
 document.getElementById("detail-lead").textContent = rosary.summary;
 document.getElementById("detail-intro").textContent = rosary.description;
@@ -32,8 +32,8 @@ document.getElementById("detail-sidebar").innerHTML = `
     <div class="meta-box">
       <p class="meta-label">Zasto ovako</p>
       <p>
-        Krunice je smisleno odvojiti od devetnica jer su to trajne molitve koje korisnik cesto otvara
-        neovisno o datumu. Tako navigacija ostaje cista i logicna.
+        Krunicu ima smisla odvojiti od devetnica jer je to trajna molitva koju korisnik cesto
+        otvara neovisno o datumu. Tako navigacija ostaje cista i logicna.
       </p>
     </div>
   </div>
