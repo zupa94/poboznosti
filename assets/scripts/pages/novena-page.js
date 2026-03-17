@@ -5,7 +5,7 @@ const slug = document.body.dataset.slug;
 const novena = getNovenaBySlug(slug);
 
 if (!novena) {
-  throw new Error(`Nepostojeca devetnica: ${slug}`);
+  throw new Error(`Nepostojeća devetnica: ${slug}`);
 }
 
 const status = getNovenaStatus(novena, new Date());
@@ -27,19 +27,19 @@ document.getElementById("detail-intro-inline").innerHTML = `
             ? "Devetnica je u tijeku"
             : status.state === "future"
               ? "Devetnica tek dolazi"
-              : "Ciklus za ovu godinu je prosao"
+              : "Ciklus za ovu godinu je prošao"
         }</h3>
         <p>${
           status.state === "active"
             ? `Danas je ${status.dayNumber}. dan devetnice.`
-            : `Sljedeci pocetak je ${formatDate(status.startDate)}.`
+            : `Sljedeći početak je ${formatDate(status.startDate)}.`
         }</p>
       </div>
       <div class="meta-box">
-        <p class="meta-label">Sadrzaj</p>
+        <p class="meta-label">Sadržaj</p>
         <ul class="meta-list">
           <li>Na vrhu je pripravna molitva.</li>
-          <li>Zatim slijedi devet dana devetnice i zavrsna molitva.</li>
+          <li>Zatim slijedi devet dana devetnice i završna molitva.</li>
           <li>Litanije sv. Josipa nalaze se pri dnu stranice.</li>
         </ul>
       </div>
@@ -48,8 +48,8 @@ document.getElementById("detail-intro-inline").innerHTML = `
 `;
 
 document.getElementById("detail-meta").innerHTML = `
-  <span class="mini-badge">Pocetak: ${formatDate(status.startDate)}</span>
-  <span class="mini-badge">Uocnica blagdana: ${formatDate(status.endDate)}</span>
+  <span class="mini-badge">Početak: ${formatDate(status.startDate)}</span>
+  <span class="mini-badge">Uočnica blagdana: ${formatDate(status.endDate)}</span>
   ${
     status.state === "active"
       ? `<span class="mini-badge">Danas je ${status.dayNumber}. dan</span>`

@@ -1,9 +1,9 @@
 import { novenas } from "../data/novenas/index.js";
 
 const monthNames = [
-  "sijecanj",
-  "veljaca",
-  "ozujak",
+  "siječanj",
+  "veljača",
+  "ožujak",
   "travanj",
   "svibanj",
   "lipanj",
@@ -15,7 +15,7 @@ const monthNames = [
   "prosinac"
 ];
 
-const weekdayNames = ["Pon", "Uto", "Sri", "Cet", "Pet", "Sub", "Ned"];
+const weekdayNames = ["Pon", "Uto", "Sri", "Čet", "Pet", "Sub", "Ned"];
 
 function createDate(year, month, day) {
   return new Date(year, month - 1, day);
@@ -142,15 +142,15 @@ export function getHomeFocus(referenceDate = new Date()) {
     const current = active.sort((left, right) => left.status.dayNumber - right.status.dayNumber)[0];
     return {
       title: `${current.novena.title} je aktivna`,
-      body: `Danas je ${current.status.dayNumber}. dan. Devetnica je pocela ${formatDate(current.status.startDate)}.`
+      body: `Danas je ${current.status.dayNumber}. dan. Devetnica je počela ${formatDate(current.status.startDate)}.`
     };
   }
 
   const next = statuses.sort((left, right) => left.status.daysUntilStart - right.status.daysUntilStart)[0];
 
   return {
-    title: `Sljedeca devetnica je ${next.novena.shortTitle}`,
-    body: `Pocinje ${formatDate(next.status.startDate)} i vodi prema blagdanu: ${next.novena.feastTitle}.`
+    title: `Sljedeća devetnica je ${next.novena.shortTitle}`,
+    body: `Počinje ${formatDate(next.status.startDate)} i vodi prema blagdanu: ${next.novena.feastTitle}.`
   };
 }
 

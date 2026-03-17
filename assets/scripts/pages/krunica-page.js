@@ -4,7 +4,7 @@ const slug = document.body.dataset.slug;
 const rosary = getRosaryBySlug(slug);
 
 if (!rosary) {
-  throw new Error(`Nepostojeca krunica: ${slug}`);
+  throw new Error(`Nepostojeća krunica: ${slug}`);
 }
 
 document.title = `${rosary.title} | Poboznosti`;
@@ -22,18 +22,18 @@ document.getElementById("detail-meta").innerHTML = `
 document.getElementById("detail-sidebar").innerHTML = `
   <div class="meta-panel">
     <div class="meta-box">
-      <p class="meta-label">Predlozeni raspored</p>
+      <p class="meta-label">Predloženi raspored</p>
       <ul class="meta-list">
-        <li>Uvod i kratko objasnjenje kada se moli.</li>
+        <li>Uvod i kratko objašnjenje kada se moli.</li>
         <li>Redoslijed molitava po koracima.</li>
         <li>Zasebni blokovi za otajstva ili desetice.</li>
       </ul>
     </div>
     <div class="meta-box">
-      <p class="meta-label">Zasto ovako</p>
+      <p class="meta-label">Zašto ovako</p>
       <p>
-        Krunicu ima smisla odvojiti od devetnica jer je to trajna molitva koju korisnik cesto
-        otvara neovisno o datumu. Tako navigacija ostaje cista i logicna.
+        Krunicu ima smisla odvojiti od devetnica jer je to trajna molitva koju korisnik često
+        otvara neovisno o datumu. Tako navigacija ostaje čista i logična.
       </p>
     </div>
   </div>

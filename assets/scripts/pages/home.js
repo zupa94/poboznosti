@@ -47,7 +47,7 @@ function renderCalendar() {
       const notes = cell.novenas
         .map((item) => {
           if (item.isStart) {
-            return `<span class="mini-badge"><strong>${item.novena.shortTitle}</strong><br>Pocetak</span>`;
+            return `<span class="mini-badge"><strong>${item.novena.shortTitle}</strong><br>Početak</span>`;
           }
 
           return `<span class="mini-badge"><strong>${item.novena.shortTitle}</strong><br>${item.dayNumber}. dan</span>`;
@@ -82,9 +82,9 @@ function renderActiveNovenas() {
       if (status.state === "active") {
         stateText = `Danas je ${status.dayNumber}. dan devetnice.`;
       } else if (status.state === "future") {
-        stateText = `Pocinje za ${status.daysUntilStart} dana, ${formatDate(status.startDate)}.`;
+        stateText = `Počinje za ${status.daysUntilStart} dana, ${formatDate(status.startDate)}.`;
       } else {
-        stateText = `Sljedeci ciklus pocinje ${formatDate(status.startDate)}.`;
+        stateText = `Sljedeći ciklus počinje ${formatDate(status.startDate)}.`;
       }
 
       return `
@@ -109,8 +109,8 @@ function renderNovenaCards() {
         status.state === "active"
           ? `${status.dayNumber}. dan devetnice`
           : status.state === "future"
-            ? `Pocinje ${formatDate(status.startDate)}`
-            : `Sljedeca devetnica ${formatDate(status.startDate)}`;
+            ? `Počinje ${formatDate(status.startDate)}`
+            : `Sljedeća devetnica ${formatDate(status.startDate)}`;
 
       return `
         <article class="info-card">
