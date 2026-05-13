@@ -38,9 +38,10 @@ document.getElementById("detail-intro-inline").innerHTML = `
       <div class="meta-box">
         <p class="meta-label">Sadržaj</p>
         <ul class="meta-list">
-          <li>Na vrhu je pripravna molitva.</li>
-          <li>Zatim slijedi devet dana devetnice i završna molitva.</li>
-          <li>Litanije sv. Josipa nalaze se pri dnu stranice.</li>
+          ${novena.preparation ? "<li>Na vrhu je pripravna molitva.</li>" : ""}
+          <li>Devet dana devetnice s molitvama.</li>
+          ${(novena.closingSections || []).length ? "<li>Završne molitve nalaze se pri dnu.</li>" : ""}
+          ${novena.days[0]?.litany ? "<li>Litanije su izdvojene pri dnu stranice.</li>" : ""}
         </ul>
       </div>
     </div>
@@ -53,7 +54,9 @@ document.getElementById("detail-meta").innerHTML = `
   ${
     status.state === "active"
       ? `<span class="mini-badge">Danas je ${status.dayNumber}. dan</span>`
-      : `<span class="mini-badge">Blagdan: ${novena.feast.day}. ${novena.feast.month}.</span>`
+      : novena.feast.month
+        ? `<span class="mini-badge">Blagdan: ${novena.feast.day}. ${novena.feast.month}.</span>`
+        : `<span class="mini-badge">Blagdan: ${formatDate(status.feastDate)}</span>`
   }
 `;
 
@@ -71,55 +74,71 @@ const preparationMarkup = novena.preparation
   `
   : "";
 
-const daysMarkup = novena.days
-  .map(
-    (day) => `
-      <article class="prayer-section">
-        <div class="prayer-section-header">
-          <span class="day-number">${day.day}</span>
-          <div class="day-copy">
-            <h3>${day.title}</h3>
-            ${day.subtitle ? `<p class="day-subtitle">${day.subtitle}</p>` : ""}
+const daysMarkup = novena.days.length
+  ? `
+    <article class="prayer-section">
+      <div class="prayer-flow">
+        ${novena.days
+          .map(
+            (day) => `
+          <div class="prayer-step">
+            <div class="prayer-section-header">
+              <span class="day-number">${day.day}</span>
+              <div class="day-copy">
+                <h3>${day.title}</h3>
+                ${day.subtitle ? `<p class="day-subtitle">${day.subtitle}</p>` : ""}
+              </div>
+            </div>
+            <div class="day-copy">
+              ${(day.paragraphs || []).map((paragraph) => `<p>${paragraph}</p>`).join("")}
+            </div>
+            <div class="prayer-callouts">
+              ${(day.prayers || []).map((line) => `<span class="prayer-pill">${line}</span>`).join("")}
+            </div>
+            ${novena.days[0]?.litany ? `<a class="prayer-link" href="#litanije">Litanije</a>` : ""}
           </div>
-        </div>
-        <div class="day-copy">
-          ${day.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
-        </div>
-        <div class="prayer-callouts">
-          ${day.prayers.map((line) => `<span class="prayer-pill">${line}</span>`).join("")}
-        </div>
-        <a class="prayer-link" href="#litanije-svetog-josipa">Litanije sv. Josipa</a>
-      </article>
-    `
-  )
-  .join("");
+        `
+          )
+          .join("")}
+      </div>
+    </article>
+  `
+  : "";
 
-const closingMarkup = (novena.closingSections || [])
-  .map(
-    (section, index) => `
-      <article class="prayer-section">
-        <div class="prayer-section-header">
-          <span class="day-number">${index + 10}</span>
-          <div class="day-copy">
-            <h3>${section.title}</h3>
-            ${section.intro ? `<p>${section.intro}</p>` : ""}
+const closingMarkup = (novena.closingSections || []).length
+  ? `
+    <article class="prayer-section">
+      <div class="prayer-flow">
+        ${(novena.closingSections || [])
+          .map(
+            (section, index) => `
+          <div class="prayer-step">
+            <div class="prayer-section-header">
+              <span class="day-number">${index + 10}</span>
+              <div class="day-copy">
+                <h3>${section.title}</h3>
+                ${section.intro ? `<p>${section.intro}</p>` : ""}
+              </div>
+            </div>
+            <div class="day-copy">
+              ${section.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+            </div>
           </div>
-        </div>
-        <div class="day-copy">
-          ${section.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
-        </div>
-      </article>
-    `
-  )
-  .join("");
+        `
+          )
+          .join("")}
+      </div>
+    </article>
+  `
+  : "";
 
 const litanyMarkup = novena.days[0]?.litany
   ? `
-    <article id="litanije-svetog-josipa" class="prayer-section">
+    <article id="litanije" class="prayer-section">
       <div class="prayer-section-header">
         <span class="day-number">L</span>
         <div class="day-copy">
-          <h3>Litanije sv. Josipa</h3>
+          <h3>${novena.litanyTitle || "Litanije"}</h3>
           <p>Ovaj dio je izdvojen na jednom mjestu kako se litanije ne bi ponavljale nakon svakoga dana.</p>
         </div>
       </div>

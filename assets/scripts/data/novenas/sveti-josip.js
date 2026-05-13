@@ -55,6 +55,7 @@ export const svetiJosipNovena = {
   shortTitle: "Sv. Josip",
   feastTitle: "Svetkovina sv. Josipa",
   feast: { month: 3, day: 19 },
+  litanyTitle: "Litanije sv. Josipa",
   summary:
     "Devetnica svetom Josipu s pripravnom molitvom, devet dana molitve, litanijama i završnim molitvama.",
   theme:

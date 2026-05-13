@@ -26,25 +26,70 @@
         <div class="hero-copy">
           <span class="eyebrow">Molitveni prostor</span>
           <h1>Devetnice i krunica na jednom mjestu.</h1>
-          <p class="lead">
-            Jednostavan ulaz u dvije glavne cjeline stranice. Odaberi devetnice za kalendarski
-            pregled i aktivne pobožnosti ili krunicu za trajni molitveni redoslijed.
-          </p>
+          <div id="today-focus" class="hero-panel"></div>
           <div class="home-entry-grid">
             <a class="home-entry-card" href="devetnice/index.html">
-<!--              <span class="hero-panel-label">Dvije cjeline</span>-->
               <h3>Devetnice</h3>
               <p>Kalendar, aktivne devetnice i zasebne stranice za svaku pobožnost.</p>
             </a>
             <a class="home-entry-card" href="krunica/index.html">
-<!--              <span class="hero-panel-label">Dvije cjeline</span>-->
               <h3>Krunica</h3>
               <p>Jasan redoslijed molitve, početne molitve, otajstva i završne molitve na jednoj stranici.</p>
             </a>
           </div>
         </div>
       </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Kalendar</span>
+            <h2>Devetnice ovog mjeseca</h2>
+          </div>
+        </div>
+        <article class="glass-card calendar-card calendar-card-full">
+          <div class="calendar-header">
+            <div class="calendar-title-block">
+              <p class="calendar-month-label">Aktivni mjesec</p>
+              <h3 id="calendar-title">Kalendar</h3>
+            </div>
+            <div class="calendar-controls" aria-label="Navigacija po mjesecima">
+              <button id="calendar-prev" class="calendar-nav-button" type="button" aria-label="Prethodni mjesec">‹</button>
+              <button id="calendar-next" class="calendar-nav-button" type="button" aria-label="Sljedeći mjesec">›</button>
+            </div>
+            <div class="calendar-legend">
+              <span><i class="legend-swatch start"></i>Početak</span>
+              <span><i class="legend-swatch active"></i>Aktivna devetnica</span>
+              <span><i class="legend-swatch today"></i>Danas</span>
+            </div>
+          </div>
+          <div id="calendar-grid" class="calendar-grid"></div>
+        </article>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Devetnice</span>
+            <h2>Sve devetnice</h2>
+          </div>
+        </div>
+        <div id="novena-cards" class="page-list"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Krunica</span>
+            <h2>Krunica</h2>
+          </div>
+        </div>
+        <div id="rosary-cards" class="page-list"></div>
+      </section>
     </main>
   </div>
+
+  <script type="module" src="assets/scripts/pages/home.js"></script>
+  <script src="assets/scripts/back-to-top.js"></script>
 </body>
 </html>

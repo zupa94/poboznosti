@@ -876,6 +876,25 @@ h3 {
   color: var(--accent);
 }
 
+.prayer-flow {
+  display: grid;
+  gap: 0;
+}
+
+.prayer-step {
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+}
+
+.prayer-step:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.prayer-step:last-child {
+  padding-bottom: 0;
+}
+
 .litany-block {
   margin-top: 22px;
   padding-top: 18px;
@@ -971,11 +990,10 @@ h3 {
 }
 
 .mystery-card {
-  padding: 24px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.78);
+  padding: 20px 22px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
 }
 
 .mystery-card h3 {
@@ -1144,5 +1162,44 @@ h3 {
 
   .home-entry-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    width: auto;
+    min-width: 0;
+  }
+
+  .calendar-day-name,
+  .calendar-cell {
+    width: auto;
+    min-height: 44px;
+    padding: 5px 3px;
+    border-radius: 8px;
+  }
+
+  .calendar-day-name {
+    min-height: 26px;
+    font-size: 0.6rem;
+  }
+
+  .calendar-cell-head {
+    margin-bottom: 0;
+    justify-content: center;
+  }
+
+  .calendar-date {
+    font-size: 0.76rem;
+  }
+
+  .today-badge {
+    display: none;
+  }
+
+  .calendar-notes {
+    display: none;
   }
 }
