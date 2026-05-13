@@ -1,3 +1,5 @@
+import { marijaMajkaBozjaNovena } from "./marija-majka-bozja.js";
+import { gospaLurdskaNovena } from "./gospa-lurdska.js";
 import { svetiJosipNovena } from "./sveti-josip.js";
 import { blagovijestNovena } from "./blagovijest.js";
 import { svetaObiteljNovena } from "./sveta-obitelj.js";
@@ -20,6 +22,7 @@ import { gospaZalosnaNovena } from "./gospa-zalosna.js";
 import { svetiMihovilNovena } from "./sveti-mihovil.js";
 import { franjoAsiskiNovena } from "./franjo-asiski.js";
 import { sviSvetiNovena } from "./svi-sveti.js";
+import { dusniDanNovena } from "./dusni-dan.js";
 
 function feastSortKey(feast) {
   if (feast.easterOffset !== undefined) return feast.easterOffset + 412;
@@ -27,6 +30,8 @@ function feastSortKey(feast) {
 }
 
 export const novenas = [
+  marijaMajkaBozjaNovena,
+  gospaLurdskaNovena,
   svetiJosipNovena,
   blagovijestNovena,
   svetaObiteljNovena,
@@ -48,7 +53,8 @@ export const novenas = [
   gospaZalosnaNovena,
   svetiMihovilNovena,
   franjoAsiskiNovena,
-  sviSvetiNovena
+  sviSvetiNovena,
+  dusniDanNovena
 ].sort((a, b) => feastSortKey(a.feast) - feastSortKey(b.feast));
 
 export function getNovenaBySlug(slug) {

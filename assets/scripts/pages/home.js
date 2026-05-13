@@ -18,10 +18,12 @@ function renderFocus() {
   `;
 }
 
+let calendarDate = new Date();
+
 function renderCalendar() {
   const title = document.getElementById("calendar-title");
   const grid = document.getElementById("calendar-grid");
-  const { weekdayNames, monthLabel, cells } = buildCalendarModel(new Date());
+  const { weekdayNames, monthLabel, cells } = buildCalendarModel(calendarDate);
 
   title.textContent = monthLabel;
 
@@ -142,6 +144,16 @@ function renderRosaryCards() {
     )
     .join("");
 }
+
+document.getElementById("calendar-prev").addEventListener("click", () => {
+  calendarDate = new Date(calendarDate.getFullYear(), calendarDate.getMonth() - 1, 1);
+  renderCalendar();
+});
+
+document.getElementById("calendar-next").addEventListener("click", () => {
+  calendarDate = new Date(calendarDate.getFullYear(), calendarDate.getMonth() + 1, 1);
+  renderCalendar();
+});
 
 renderFocus();
 renderCalendar();

@@ -124,21 +124,24 @@ export function buildCalendarModel(referenceDate = new Date()) {
     const date = new Date(year, month, day);
     const dayNovenas = novenas
       .map((novena) => {
-        const occurrence = getOccurrence(novena, year);
-        const isStart = startOfDay(date).getTime() === occurrence.startDate.getTime();
-        const isActive =
-          startOfDay(date) >= occurrence.startDate && startOfDay(date) <= occurrence.endDate;
+        // Check both this year and next year to handle feasts in early January
+        // whose novena period falls in December of the current year.
+        for (const y of [year, year + 1]) {
+          const occurrence = getOccurrence(novena, y);
+          const isStart = startOfDay(date).getTime() === occurrence.startDate.getTime();
+          const isActive =
+            startOfDay(date) >= occurrence.startDate && startOfDay(date) <= occurrence.endDate;
 
-        if (!isStart && !isActive) {
-          return null;
+          if (isStart || isActive) {
+            return {
+              novena,
+              isStart,
+              isActive,
+              dayNumber: isActive ? diffInDays(occurrence.startDate, date) + 1 : null
+            };
+          }
         }
-
-        return {
-          novena,
-          isStart,
-          isActive,
-          dayNumber: isActive ? diffInDays(occurrence.startDate, date) + 1 : null
-        };
+        return null;
       })
       .filter(Boolean);
 
