@@ -1167,32 +1167,31 @@ h3 {
 
 @media (max-width: 480px) {
   .calendar-grid {
-    grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-    width: auto;
+    grid-template-columns: repeat(7, 68px);
+    gap: 6px;
+    width: max-content;
     min-width: 0;
   }
 
   .calendar-day-name,
   .calendar-cell {
-    width: auto;
-    min-height: 44px;
-    padding: 5px 3px;
-    border-radius: 8px;
+    width: 68px;
+    min-height: 104px;
+    padding: 8px;
+    border-radius: 12px;
   }
 
   .calendar-day-name {
-    min-height: 26px;
-    font-size: 0.6rem;
+    min-height: 30px;
+    font-size: 0.7rem;
   }
 
   .calendar-cell-head {
-    margin-bottom: 0;
-    justify-content: center;
+    margin-bottom: 6px;
   }
 
   .calendar-date {
-    font-size: 0.76rem;
+    font-size: 0.82rem;
   }
 
   .today-badge {
@@ -1200,6 +1199,13 @@ h3 {
   }
 
   .calendar-notes {
-    display: none;
+    gap: 5px;
+  }
+
+  .mini-badge {
+    min-height: 0;
+    padding: 5px 6px;
+    font-size: 0.66rem;
+    line-height: 1.2;
   }
 }

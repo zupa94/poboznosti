@@ -73,6 +73,10 @@ function renderCalendar() {
 
 function renderActiveNovenas() {
   const target = document.getElementById("active-novenas");
+  if (!target) {
+    return;
+  }
+
   const items = novenas
     .map((novena) => ({ novena, status: getNovenaStatus(novena, new Date()) }))
     .sort((left, right) => left.status.daysUntilStart - right.status.daysUntilStart);
